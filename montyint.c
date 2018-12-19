@@ -53,6 +53,8 @@ int perform_file(instruction_t *opchecker, char *input)
 		lnum++;
 		buf = ptr;
 		uop = strtok(ptr, DELIMITERS);
+		if (uop[0] == '#')
+			continue;
 		for (i = 0; opchecker[i].opcode != NULL; i++)
 		{
 			if (strcmp(uop, opchecker[i].opcode) == 0)
