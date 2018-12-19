@@ -8,35 +8,33 @@ void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
 	stack_t *storage;
-	int i;
+	size_t i = 0;
 
-	if (checkfortwo(stack) == 1)
+	if (checkfortwo(stack))
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	i = 0;
-	printf("before while loop");
-	while (temp != NULL)
+	while (temp->next != NULL)
 	{
-		printf("first in while");
-		if (i == 2)
-		{
-			printf("first if");
-			storage = temp->prev;/** make the storage previous node.*/
-			storage = temp->next;/** storage is now next to temp*/
-			temp->prev = NULL;/*makes temp point to null at the beginning*/
-			storage->next = NULL;/*makes storage pt to NULL*/
-		}
-		else /** if there are more than 2 elements in the stack.*/
-		{
-			printf("in else");
-			storage = temp->prev; /*placing previous node in strg*/
-			temp->next = storage; /*moving storage to after temp */
-			storage->prev = temp; /*moving temp to before storage */
-			storage->next = NULL; /*making storage point to NULL */
-		}
-		temp = temp->next;
 		i++;
+		temp = temp->next;
+	}
+	if (++i == 2)
+	{
+		storage = temp->prev;/** make the storage previous node.*/
+		storage->prev = temp;/** storage is now next to temp*/
+		temp->prev = NULL;/*makes temp point to null at the beginning*/
+		storage->next = NULL;/*makes storage pt to NULL*/
+
+	}
+	else /** if there are more than 2 elements in the stack.*/
+	{
+		storage = temp->prev; /*placing previous node in strg*/
+		storage->prev->next = temp;
+		temp->prev = storage->prev;
+		storage->prev = temp; /*moving temp to before storage */
+		storage->next = temp->next; /*making storage point to NULL */
+		temp->next = storage; /*moving storage to after temp */
 	}
 }
