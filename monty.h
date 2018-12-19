@@ -1,6 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define DELIMITERS " \n\t\r"
 /* C Standard Library */
 #include <stdio.h>
 #include <stdlib.h>

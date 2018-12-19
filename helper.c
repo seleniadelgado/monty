@@ -21,6 +21,7 @@ int str_int(char *str)
 /**
  * checkfortwo - checks the stack if it contains less than two elements.
  * @stack: the stack we are counting through.
+ * Return: 0 if there are at least two elements, 1 if there are not
  */
 int checkfortwo(stack_t **stack)
 {
