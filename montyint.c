@@ -1,7 +1,6 @@
 #include "monty.h"
-#define DELIMITERS " \n\t\r"
 
-char *arg = NULL;
+char *buf = NULL;
 /**
  * main - entry point for monty interpreter
  * @argc: argument count
@@ -52,8 +51,8 @@ int perform_file(instruction_t *opchecker, char *input)
 	while (getline(&ptr, &n, opn) != -1)
 	{
 		lnum++;
+		buf = ptr;
 		uop = strtok(ptr, DELIMITERS);
-		arg = strtok(NULL, DELIMITERS);
 		for (i = 0; opchecker[i].opcode != NULL; i++)
 		{
 			if (strcmp(uop, opchecker[i].opcode) == 0)
@@ -65,9 +64,13 @@ int perform_file(instruction_t *opchecker, char *input)
 		if (opchecker[i].opcode == NULL)
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", lnum, uop);
+			freeit(&stack);
+			free(buf);
 			exit(EXIT_FAILURE);
 		}
 	}
 	fclose(opn);
+	freeit(&stack);
+	free(buf);
 	exit(EXIT_SUCCESS);
 }

@@ -1,6 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define DELIMITERS " \n\t\r"
 /* C Standard Library */
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,4 +53,5 @@ void _div(stack_t **stack, unsigned int line_number);
 int str_int(char *str);
 int checkfortwo(stack_t **stack);
 int perform_file(instruction_t *, char *);
+void freeit(stack_t **stack);
 #endif
