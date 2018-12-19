@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 		{"pop", pop},
 		{"add", add},
 		{"sub", sub},
+		{"div", _div},
 		{NULL, NULL}
 	};
 	if (argc != 2)
