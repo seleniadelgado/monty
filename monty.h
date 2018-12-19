@@ -48,5 +48,7 @@ void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 
 /* Function Definitions */
+int str_int(char *str);
+int checkfortwo(stack_t **stack);
 int perform_file(instruction_t *, char *);
 #endif
