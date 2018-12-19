@@ -8,11 +8,14 @@
 void pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tail;
+	extern char *buf;
 
 	tail = *stack;
 	if (tail == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		freeit(stack);
+		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	while (tail->next != NULL)
@@ -28,11 +31,14 @@ void pint(stack_t **stack, unsigned int line_number)
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tail;
+	extern char *buf;
 
 	tail = *stack;
 	if (tail == NULL)
 	{
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		freeit(stack);
+		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	while (tail->next != NULL)
@@ -53,11 +59,14 @@ void add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
 	int sum;
+	extern char *buf;
 
 	node = *stack;
 	if (checkfortwo(stack))
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		freeit(stack);
+		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	while (node->next != NULL)
@@ -77,11 +86,14 @@ void sub(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
 	int sub;
+	extern char *buf;
 
 	node = *stack;
 	if (checkfortwo(stack))
 	{
 		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		free(buf);
+		freeit(stack);
 		exit(EXIT_FAILURE);
 	}
 	while (node->next != NULL)
@@ -101,11 +113,14 @@ void _div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
 	int div;
+	extern char *buf;
 
 	node = *stack;
 	if (checkfortwo(stack))
 	{
 		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		freeit(stack);
+		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	while (node->next != NULL)
@@ -113,6 +128,8 @@ void _div(stack_t **stack, unsigned int line_number)
 	if (node->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
+		freeit(stack);
+		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	div = node->prev->n / node->n;
