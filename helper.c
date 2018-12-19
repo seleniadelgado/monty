@@ -18,3 +18,19 @@ int str_int(char *str)
 	}
 	return (0);
 }
+/**
+ * checkfortwo - checks the stack if it contains less than two elements.
+ * @stack: the stack we are counting through.
+ */
+int checkfortwo(stack_t **stack)
+{
+	stack_t *temp = stack;
+	int i = 0;
+	while (temp != NULL)
+	{
+		if (i == 2)
+			return (0);
+		i++;
+	}
+	return (1);
+}
