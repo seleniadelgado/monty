@@ -26,12 +26,12 @@ int checkfortwo(stack_t **stack)
 {
 	stack_t *temp = *stack;
 	int i = 0;
-	
+
 	while (temp != NULL)
 	{
 		if (++i == 2)
 			return (0);
-		temp = temp->next; 
+		temp = temp->next;
 	}
 	return (1);
 }

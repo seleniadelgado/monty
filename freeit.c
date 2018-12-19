@@ -3,7 +3,7 @@
  * freeit - frees the entire allocated memory.
  * @stack: stack to be freed.
  */
-void freeit(stack_t stack**)
+void freeit(stack_t **stack)
 {
 	stack_t *temp = *stack;
 	stack_t *storage;
@@ -12,6 +12,6 @@ void freeit(stack_t stack**)
 	{
 		storage = temp->next;
 		free(temp);
-		storage = temp;
+		temp = storage;
 	}
 }
