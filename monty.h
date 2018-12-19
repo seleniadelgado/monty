@@ -39,13 +39,16 @@ typedef struct instruction_s
 } instruction_t;
 
 /* Function Definitions for Opcodes */
-void push(stack_t **, unsigned int);
-void pall(stack_t **, unsigned int);
-void pint(stack_t **, unsigned int);
-void pop(stack_t **, unsigned int);
-void add(stack_t **, unsigned int);
-void sub(stack_t **, unsigned int);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 
 /* Function Definitions */
+int str_int(char *str);
+int checkfortwo(stack_t **stack);
 int perform_file(instruction_t *, char *);
 #endif
