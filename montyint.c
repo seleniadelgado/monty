@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 		{"swap", swap},
 		{"add", add},
 		{"sub", sub},
+		{"div", _div},
 		{NULL, NULL}
 	};
 	if (argc != 2)
