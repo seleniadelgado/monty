@@ -66,5 +66,6 @@ int perform_file(instruction_t *opchecker, char *input)
 			exit(EXIT_FAILURE);
 		}
 	}
+	fclose(opn);
 	exit(EXIT_SUCCESS);
 }
