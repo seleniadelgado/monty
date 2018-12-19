@@ -1,6 +1,7 @@
 #include "monty.h"
-#define DELIMETERS " \n\t"
+#define DELIMITERS " \n\t\r"
 
+char *arg = NULL;
 /**
  * main - entry point for monty interpreter
  * @argc: argument count
@@ -14,9 +15,9 @@ int main(int argc, char *argv[])
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
-		{"add", add},
+/*		{"add", add},
 		{"sub", sub},
-		{NULL, NULL}
+*/		{NULL, NULL}
 	};
 	if (argc != 2)
 	{
@@ -37,7 +38,7 @@ int perform_file(instruction_t *opchecker, char *input)
 	FILE *opn;
 	char *uop, *ptr = NULL;
 	size_t n;
-	stack_t *stack;
+	stack_t *stack = NULL;
 	unsigned int i, lnum = 0;
 
 	opn = fopen(input, "r");
@@ -49,11 +50,15 @@ int perform_file(instruction_t *opchecker, char *input)
 	while (getline(&ptr, &n, opn) != -1)
 	{
 		lnum++;
-		uop = strtok(ptr, DELIMETERS);
+		uop = strtok(ptr, DELIMITERS);
+		arg = strtok(NULL, DELIMITERS);
 		for (i = 0; opchecker[i].opcode != NULL; i++)
 		{
 			if (strcmp(uop, opchecker[i].opcode) == 0)
+			{
 				opchecker[i].f(&stack, lnum);
+				break;
+			}
 		}
 		if (opchecker[i].opcode == NULL)
 		{
