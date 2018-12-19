@@ -15,9 +15,9 @@ int main(int argc, char *argv[])
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
-/*		{"add", add},
+		{"add", add},
 		{"sub", sub},
-*/		{NULL, NULL}
+		{NULL, NULL}
 	};
 	if (argc != 2)
 	{
