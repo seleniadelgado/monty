@@ -12,6 +12,14 @@ int str_int(char *str)
 
 	while (*str != '\0')
 	{
+		if (*str == '-' || *str == '+')
+			str++;
+		else
+			break;
+	}
+
+	while (*str != '\0')
+	{
 		if (*str < '0' || *str > '9')
 			return (1);
 		str++;

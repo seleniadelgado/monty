@@ -7,9 +7,8 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = info.tail;
-	stack_t *new;
-	int n;
+	stack_t *new, *temp = info.tail;
+	int n, sign = 1;
 	char *arg;
 	(void)stack;
 
@@ -20,7 +19,12 @@ void push(stack_t **stack, unsigned int line_number)
 		freeit(stack);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(arg);
+	while (*arg == '+' || *arg == '-')
+	{
+		if (*arg++ == '-')
+			sign *= -1;
+	}
+	n = atoi(arg) * sign;
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
