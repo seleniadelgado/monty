@@ -10,10 +10,10 @@ void rotl(stack_t **stack, unsigned int line_number)
 	stack_t *tail, *head, *new_tail;
 	(void)line_number;
 
+	tail = info.tail;
 	if (tail == NULL || (tail->prev == NULL && tail->next == NULL))
 		return;
 
-	tail = info.tail;
 	head = *stack;
 
 	new_tail = tail->prev;
