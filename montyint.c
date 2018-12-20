@@ -1,5 +1,4 @@
 #include "monty.h"
-
 info_t info  = {NULL, NULL, 0, NULL};
 /**
  * main - entry point for monty interpreter
@@ -24,6 +23,7 @@ int main(int argc, char *argv[])
 		{"pchar", pchar},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	if (argc != 2)
