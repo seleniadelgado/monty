@@ -38,7 +38,9 @@ void pop(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	if (tail->prev == NULL)
-		*stack = NULL;
+	{
+		*stack = info.tail = NULL;
+	}
 	else
 	{
 		tail->prev->next = tail->next;
