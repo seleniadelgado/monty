@@ -21,6 +21,9 @@ int main(int argc, char *argv[])
 		{"mul", _mul},
 		{"nop", nope},
 		{"pchar", pchar},
+		{"rotl", rotl},
+		{"queue", makequeue_stack},
+		{"stack", makequeue_stack},
 		{NULL, NULL}
 	};
 	if (argc != 2)
