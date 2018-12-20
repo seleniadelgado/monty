@@ -26,5 +26,6 @@ void _mul(stack_t **stack, unsigned int line_number)
 	b = temp->prev->n;
 	result = (a * b);
 	temp->prev->n = result;
+	temp->prev->next = NULL;
 	free(temp);
 }
