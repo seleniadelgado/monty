@@ -27,11 +27,11 @@ void rotl(stack_t **stack, unsigned int line_number)
 }
 
 /**
-  * makequeue_stack - changes format of data stack to queue and vice versa
+  * rotr - changes format of data stack to queue and vice versa
   * @stack: double pointer to stack
   * @line_number: line number of the file
   */
-void makequeue_stack(stack_t **stack, unsigned int line_number)
+void rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current, *temp;
 	(void)line_number;

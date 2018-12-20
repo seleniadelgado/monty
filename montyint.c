@@ -22,8 +22,7 @@ int main(int argc, char *argv[])
 		{"nop", nope},
 		{"pchar", pchar},
 		{"rotl", rotl},
-		{"queue", makequeue_stack},
-		{"stack", makequeue_stack},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 	if (argc != 2)
