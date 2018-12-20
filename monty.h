@@ -10,6 +10,19 @@
 /* Structure Prototypes */
 
 /**
+  * struct info_s - stores basic information about the program
+  * @file: file pointer
+  * @buf: buffer storing getline string
+  *
+  * Description: structure that holds important elements of the Monty program
+  */
+typedef struct info_s
+{
+	FILE *file;
+	char *buf;
+} info_t;
+
+/**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)

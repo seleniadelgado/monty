@@ -7,6 +7,7 @@ void freeit(stack_t **stack)
 {
 	stack_t *temp = *stack;
 	stack_t *storage;
+	extern info_t info;
 
 	while (temp != NULL && temp->prev != NULL)
 		temp = temp->prev;
@@ -16,4 +17,7 @@ void freeit(stack_t **stack)
 		free(temp);
 		temp = storage;
 	}
+	fclose(info.file);
+	if (info.buf != NULL)
+		free(info.buf);
 }

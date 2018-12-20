@@ -9,13 +9,11 @@ void swap(stack_t **stack, unsigned int line_number)
 	stack_t *temp = *stack;
 	stack_t *storage;
 	size_t i = 0;
-	extern char *buf;
 
 	if (checkfortwo(stack))
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		freeit(stack);
-		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	while (temp->next != NULL)

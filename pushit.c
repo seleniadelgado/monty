@@ -10,7 +10,6 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *temp = *stack;
 	stack_t *new;
 	int n;
-	extern char *buf;
 	char *arg;
 
 	arg = strtok(NULL, DELIMITERS);
@@ -18,7 +17,6 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		freeit(stack);
-		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(arg);
@@ -27,7 +25,6 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		freeit(stack);
-		free(buf);
 		exit(EXIT_FAILURE);
 	}
 	new->n = n;
