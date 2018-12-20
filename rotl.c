@@ -44,7 +44,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 	mid->prev = head->prev;
 	head->prev = tail;
 	head->next = tail->next;
-	tail->next = tail;
+	tail->next = head;
 	*stack = mid;
 	info.tail = head;
 }
