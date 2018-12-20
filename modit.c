@@ -30,5 +30,7 @@ void mod(stack_t **stack, unsigned int line_number)
 	result = second % first;
 	temp->prev->n = result;
 	temp->prev->next = NULL;
+	info.tail = temp->prev;
+	info.num_nodes -= 1;
 	free(temp);
 }
