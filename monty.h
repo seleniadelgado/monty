@@ -2,6 +2,7 @@
 #define MONTY_H
 
 #define DELIMITERS " \n\t\r"
+
 /* C Standard Library */
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,6 +23,7 @@ typedef struct info_s
 	char *buf;
 } info_t;
 
+extern info_t info;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer

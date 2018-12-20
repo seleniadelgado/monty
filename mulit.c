@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * mulit - function that multiples the second top element of the stack with the
+ * _mul - function that multiples the second top element of the stack with the
  * top element of the stack.
  * @stack: stack of which we will multiply the last two nodes of.
  * @line_number: lines counted in stack.

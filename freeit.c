@@ -7,7 +7,6 @@ void freeit(stack_t **stack)
 {
 	stack_t *temp = *stack;
 	stack_t *storage;
-	extern info_t info;
 
 	while (temp != NULL && temp->prev != NULL)
 		temp = temp->prev;
