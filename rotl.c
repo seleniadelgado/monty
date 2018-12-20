@@ -33,14 +33,20 @@ void rotl(stack_t **stack, unsigned int line_number)
   */
 void rotr(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tail, *head, *new_tail;
+	stack_t *tail, *head, *mid;
 	(void)line_number;
 
 	tail = info.tail;
 	if (info.num_nodes < 2)
 		return;
 	head = *stack;
-
+	mid = head->next;
+	mid->prev = head->prev;
+	head->prev = tail;
+	head->next = tail->next;
+	tail->next = tail;
+	*stack = mid;
+	info.tail = head;
 }
 
 /**
