@@ -28,6 +28,8 @@ int checkfortwo(stack_t **stack)
 	stack_t *temp = *stack;
 	int i = 0;
 
+	while (temp != NULL && temp->prev != NULL)
+		temp = temp->prev;
 	while (temp != NULL)
 	{
 		if (++i == 2)

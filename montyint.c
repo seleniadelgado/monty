@@ -73,5 +73,5 @@ int perform_file(instruction_t *opchecker, char *input)
 		}
 	}
 	freeit(&stack);
-	return (EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }
