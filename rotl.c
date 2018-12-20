@@ -23,7 +23,10 @@ void rotl(stack_t **stack, unsigned int line_number)
 	head->prev = tail;
 
 	if (info.num_nodes == 2)
+	{
+		head->next = NULL;
 		new_tail->prev = tail;
+	}
 	info.tail = new_tail;
 	*stack = tail;
 }
