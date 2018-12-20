@@ -6,22 +6,16 @@
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
+	stack_t *temp = info.tail;
 	stack_t *storage;
-	size_t i = 0;
 
-	if (checkfortwo(stack))
+	if (info.num_nodes < 2)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		freeit(stack);
 		exit(EXIT_FAILURE);
 	}
-	while (temp->next != NULL)
-	{
-		i++;
-		temp = temp->next;
-	}
-	if (++i == 2)
+	if (info.num_nodes == 2)
 	{
 		storage = temp->prev;/** make the storage previous node.*/
 		storage->prev = temp;/** storage is now next to temp*/
@@ -29,6 +23,7 @@ void swap(stack_t **stack, unsigned int line_number)
 		temp->prev = NULL;/*makes temp point to null at the beginning*/
 		storage->next = NULL;/*makes storage pt to NULL*/
 		*stack = temp;
+		info.tail = storage;
 	}
 	else
 	{
@@ -39,5 +34,6 @@ void swap(stack_t **stack, unsigned int line_number)
 		storage->prev = temp; /*moving temp to before storage */
 		storage->next = temp->next; /*making storage point to NULL */
 		temp->next = storage; /*moving storage to after temp */
+		info.tail = storage;
 	}
 }

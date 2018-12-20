@@ -8,8 +8,6 @@ void freeit(stack_t **stack)
 	stack_t *temp = *stack;
 	stack_t *storage;
 
-	while (temp != NULL && temp->prev != NULL)
-		temp = temp->prev;
 	while (temp != NULL)
 	{
 		storage = temp->next;

@@ -11,20 +11,6 @@
 /* Structure Prototypes */
 
 /**
-  * struct info_s - stores basic information about the program
-  * @file: file pointer
-  * @buf: buffer storing getline string
-  *
-  * Description: structure that holds important elements of the Monty program
-  */
-typedef struct info_s
-{
-	FILE *file;
-	char *buf;
-} info_t;
-
-extern info_t info;
-/**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
@@ -53,6 +39,25 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+  * struct info_s - stores basic information about the program
+  * @file: file pointer
+  * @buf: buffer storing getline string
+  * @num_nodes: number of nodes
+  * @tail: tail of stack
+  *
+  * Description: structure that holds important elements of the Monty program
+  */
+typedef struct info_s
+{
+	FILE *file;
+	char *buf;
+	size_t num_nodes;
+	stack_t *tail;
+} info_t;
+
+extern info_t info;
 
 /* Function Definitions for Opcodes */
 void push(stack_t **stack, unsigned int line_number);

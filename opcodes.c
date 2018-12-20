@@ -57,7 +57,7 @@ void add(stack_t **stack, unsigned int line_number)
 	int sum;
 
 	node = *stack;
-	if (checkfortwo(stack))
+	if (info.num_nodes < 2)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		freeit(stack);
@@ -82,7 +82,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	int sub;
 
 	node = *stack;
-	if (checkfortwo(stack))
+	if (info.num_nodes < 2)
 	{
 		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
 		freeit(stack);
@@ -107,7 +107,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	int div;
 
 	node = *stack;
-	if (checkfortwo(stack))
+	if (info.num_nodes < 2)
 	{
 		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 		freeit(stack);

@@ -1,6 +1,6 @@
 #include "monty.h"
 
-info_t info  = {NULL, NULL};
+info_t info  = {NULL, NULL, 0, NULL};
 /**
  * main - entry point for monty interpreter
  * @argc: argument count
