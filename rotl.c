@@ -10,7 +10,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 	stack_t *tail, *head, *new_tail;
 	(void)line_number;
 
-	if (info.num_nodes < 2)
+	if (tail == NULL || (tail->prev == NULL && tail->next == NULL))
 		return;
 
 	tail = info.tail;
