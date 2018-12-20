@@ -48,7 +48,7 @@ int perform_file(instruction_t *opchecker, char *input)
 	opn = info.file = fopen(input, "r");
 	if (opn == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file <file>\n");
+		fprintf(stderr, "Error: Can't open file %s\n", input);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&ptr, &n, opn) != -1)
@@ -73,7 +73,7 @@ int perform_file(instruction_t *opchecker, char *input)
 			exit(EXIT_FAILURE);
 		}
 	}
-	info.buf = ptr; 
+	info.buf = ptr;
 	freeit(&stack);
 	exit(EXIT_SUCCESS);
 }
