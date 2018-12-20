@@ -25,5 +25,6 @@ void _mul(stack_t **stack, unsigned int line_number)
 	temp->prev->n = result;
 	temp->prev->next = NULL;
 	info.tail = temp->prev;
+	info.num_nodes--;
 	free(temp);
 }

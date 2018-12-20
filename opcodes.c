@@ -73,6 +73,7 @@ void add(stack_t **stack, unsigned int line_number)
 	node->prev->n = sum;
 	node->prev->next = node->next;
 	info.tail = node->prev;
+	info.num_nodes--;
 	free(node);
 }
 
@@ -100,6 +101,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	node->prev->n = sub;
 	node->prev->next = node->next;
 	info.tail = node->prev;
+	info.num_nodes--;
 	free(node);
 }
 
@@ -133,5 +135,6 @@ void _div(stack_t **stack, unsigned int line_number)
 	node->prev->n = div;
 	node->prev->next = node->next;
 	info.tail = node->prev;
+	info.num_nodes--;
 	free(node);
 }
