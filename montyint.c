@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
 		{"div", _div},
 		{"mul", _mul},
 		{"nop", nope},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 	if (argc != 2)
