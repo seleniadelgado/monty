@@ -46,7 +46,6 @@ int perform_file(instruction_t *opchecker, char *input)
 	if (opn == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file <file>\n");
-		fclose(opn);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&ptr, &n, opn) != -1)
