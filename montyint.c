@@ -55,7 +55,7 @@ int perform_file(instruction_t *opchecker, char *input)
 		lnum++;
 		info.buf = ptr;
 		uop = strtok(ptr, DELIMITERS);
-		if (uop[0] == '#')
+		if (uop == NULL || uop[0] == '#')
 			continue;
 		for (i = 0; opchecker[i].opcode != NULL; i++)
 		{
