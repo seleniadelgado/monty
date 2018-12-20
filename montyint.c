@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
 		{"div", _div},
 		{"mul", _mul},
 		{"nop", nope},
+		{"mod", mod},
 		{"pchar", pchar},
 		{"rotl", rotl},
 		{"rotr", rotr},
