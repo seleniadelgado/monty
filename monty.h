@@ -74,8 +74,7 @@ void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
-void pstr(stack_t **stack, unsigned int line_number);
-
+void pre_rotr(stack_t **stack, unsigned int line_number);
 /* Function Definitions */
 int str_int(char *str);
 int checkfortwo(stack_t **stack);

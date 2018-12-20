@@ -22,11 +22,6 @@ void rotl(stack_t **stack, unsigned int line_number)
 	tail->prev = head->prev;
 	head->prev = tail;
 
-	if (info.num_nodes == 2)
-	{
-		head->next = NULL;
-		new_tail->prev = tail;
-	}
 	info.tail = new_tail;
 	*stack = tail;
 }
@@ -37,6 +32,23 @@ void rotl(stack_t **stack, unsigned int line_number)
   * @line_number: line number of the file
   */
 void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tail, *head, *new_tail;
+	(void)line_number;
+
+	tail = info.tail;
+	if (info.num_nodes < 2)
+		return;
+	head = *stack;
+
+}
+
+/**
+  * pre_rotr - changes format of data stack to queue and vice versa
+  * @stack: double pointer to stack
+  * @line_number: line number of the file
+  */
+void pre_rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current, *temp;
 	(void)line_number;
