@@ -7,42 +7,45 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
-	stack_t *new;
-	int n;
-	extern char *buf;
+	stack_t *new, *temp = info.tail;
+	int n, sign = 1;
 	char *arg;
+	(void)stack;
 
 	arg = strtok(NULL, DELIMITERS);
 	if (str_int(arg))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		freeit(stack);
-		free(buf);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(arg);
+	while (*arg == '+' || *arg == '-')
+	{
+		if (*arg++ == '-')
+			sign *= -1;
+	}
+	n = atoi(arg) * sign;
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		freeit(stack);
-		free(buf);
 		exit(EXIT_FAILURE);
 	}
+	info.num_nodes++;
 	new->n = n;
 	new->next = NULL;
 	if (temp == NULL)
 	{
 		new->prev = NULL;
 		*stack = new;
+		info.tail = new;
 	}
 	else
 	{
-		while (temp->next != NULL)
-			temp = temp->next;
 		new->prev = temp;
 		temp->next = new;
+		info.tail = new;
 	}
 }
 /**
@@ -53,15 +56,13 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
+	stack_t *temp;
 	(void)line_number;
+	(void)stack;
 
+	temp = info.tail;
 	if (temp == NULL)
 		return;
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-	}
 	while (temp != NULL)
 	{
 		fprintf(stdout, "%d\n", temp->n);

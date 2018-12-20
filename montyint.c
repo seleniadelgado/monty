@@ -1,6 +1,6 @@
 #include "monty.h"
 
-char *buf = NULL;
+info_t info  = {NULL, NULL, 0, NULL};
 /**
  * main - entry point for monty interpreter
  * @argc: argument count
@@ -21,6 +21,10 @@ int main(int argc, char *argv[])
 		{"mul", _mul},
 		{"nop", nope},
 		{"mod", mod},
+		{"pchar", pchar},
+		{"rotl", rotl},
+		{"queue", makequeue_stack},
+		{"stack", makequeue_stack},
 		{NULL, NULL}
 	};
 	if (argc != 2)
@@ -45,17 +49,19 @@ int perform_file(instruction_t *opchecker, char *input)
 	stack_t *stack = NULL;
 	unsigned int i, lnum = 0;
 
-	opn = fopen(input, "r");
+	opn = info.file = fopen(input, "r");
 	if (opn == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file <file>\n");
+		fprintf(stderr, "Error: Can't open file %s\n", input);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&ptr, &n, opn) != -1)
 	{
 		lnum++;
-		buf = ptr;
+		info.buf = ptr;
 		uop = strtok(ptr, DELIMITERS);
+		if (uop == NULL || uop[0] == '#')
+			continue;
 		for (i = 0; opchecker[i].opcode != NULL; i++)
 		{
 			if (strcmp(uop, opchecker[i].opcode) == 0)
@@ -68,12 +74,10 @@ int perform_file(instruction_t *opchecker, char *input)
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", lnum, uop);
 			freeit(&stack);
-			free(buf);
 			exit(EXIT_FAILURE);
 		}
 	}
-	fclose(opn);
+	info.buf = ptr;
 	freeit(&stack);
-	free(buf);
 	exit(EXIT_SUCCESS);
 }

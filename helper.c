@@ -12,6 +12,14 @@ int str_int(char *str)
 
 	while (*str != '\0')
 	{
+		if (*str == '-' || *str == '+')
+			str++;
+		else
+			break;
+	}
+
+	while (*str != '\0')
+	{
 		if (*str < '0' || *str > '9')
 			return (1);
 		str++;
@@ -28,6 +36,8 @@ int checkfortwo(stack_t **stack)
 	stack_t *temp = *stack;
 	int i = 0;
 
+	while (temp != NULL && temp->prev != NULL)
+		temp = temp->prev;
 	while (temp != NULL)
 	{
 		if (++i == 2)

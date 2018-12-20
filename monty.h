@@ -2,6 +2,7 @@
 #define MONTY_H
 
 #define DELIMITERS " \n\t\r"
+
 /* C Standard Library */
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,6 +40,25 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+  * struct info_s - stores basic information about the program
+  * @file: file pointer
+  * @buf: buffer storing getline string
+  * @num_nodes: number of nodes
+  * @tail: tail of stack
+  *
+  * Description: structure that holds important elements of the Monty program
+  */
+typedef struct info_s
+{
+	FILE *file;
+	char *buf;
+	size_t num_nodes;
+	stack_t *tail;
+} info_t;
+
+extern info_t info;
+
 /* Function Definitions for Opcodes */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
@@ -51,6 +71,9 @@ void _div(stack_t **stack, unsigned int line_number);
 void _mul(stack_t **stack, unsigned int line_number);
 void nope(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void makequeue_stack(stack_t **stack, unsigned int line_number);
 
 /* Function Definitions */
 int str_int(char *str);

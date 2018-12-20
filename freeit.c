@@ -14,4 +14,8 @@ void freeit(stack_t **stack)
 		free(temp);
 		temp = storage;
 	}
+	if (info.file != NULL)
+		fclose(info.file);
+	if (info.buf != NULL)
+		free(info.buf);
 }
