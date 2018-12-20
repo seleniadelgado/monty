@@ -73,6 +73,7 @@ int perform_file(instruction_t *opchecker, char *input)
 			exit(EXIT_FAILURE);
 		}
 	}
+	info.buf = ptr; 
 	freeit(&stack);
 	exit(EXIT_SUCCESS);
 }
