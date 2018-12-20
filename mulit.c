@@ -18,7 +18,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't mul, stack too short\n", i);
 		exit(EXIT_FAILURE);
 	}
-	while (temp != NULL)
+	while ((temp != NULL) && (temp->next != NULL))
 	{
 		temp = temp->next;
 	}
