@@ -56,3 +56,5 @@ as a comment (don’t do anything).
 #### Task 11.
 - Pchar - prints the char at the top of the stack, followed by a new line.
 #### Task 12.
+- Pstr - prints the string starting at the top of the stack, followed by a new
+line.
