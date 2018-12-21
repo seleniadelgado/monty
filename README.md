@@ -41,4 +41,5 @@ These files usually have the .m extension.
 #### Task 6.
 - Sub - subtracts the top element of the stack from the second top element of
 the stack.
-### Task 7. 
+#### Task 7.
+- Div - divides the second top element of the stack by the top element of the stack. 
