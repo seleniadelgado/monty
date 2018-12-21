@@ -1,9 +1,9 @@
 # 0x018. C- Stacks, Queues - LIFO, FIFO
-> Low-level programming - Data structures and algorithms.
->Group project (Susan Su and Angie Delgado)
+> Low-level programming - Data structures and algorithms.\n
+Group project (Susan Su and Angie Delgado)\n
 
-Important questions to answer before working on this project. 
-What do LIFO and FIFO mean?
+>Important questions to answer before working on this project.\n
+>What do LIFO and FIFO mean?\n
 LIFO = Last In First Out
 FIFO = First In First Out
 What is a stack, and when to use it?
