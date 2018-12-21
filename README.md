@@ -42,4 +42,11 @@ These files usually have the .m extension.
 - Sub - subtracts the top element of the stack from the second top element of
 the stack.
 #### Task 7.
-- Div - divides the second top element of the stack by the top element of the stack. 
+- Div - divides the second top element of the stack by the top element of the
+stack.
+#### Task 8.
+- Mul - multiplies the second top element of the stack with the top element of
+the stack.
+#### Task 9.
+- Mod - computes the rest of the division of the second top element of the stack
+by the top element of the stack.
