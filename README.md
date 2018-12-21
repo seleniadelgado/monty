@@ -25,7 +25,7 @@ A global variable is best used when the scope of it is very small.
 This project is used as an interpreter for Monty ByteCodes files.
 These files usually have the .m extension.
 
-##### Task 0.
+#### Task 0.
 - Push pushes an element to the stack.
 - Pall prints all the values on the stack, starting from the top of the stack.
 #### Task 1.
@@ -38,3 +38,7 @@ These files usually have the .m extension.
 - Add - adds the top two elements of the stack.
 #### Task 5.
 - Nop - implements the nop opcode, which does nothing.
+#### Task 6.
+- Sub - subtracts the top element of the stack from the second top element of
+the stack.
+### Task 7. 
