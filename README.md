@@ -58,3 +58,10 @@ as a comment (don’t do anything).
 #### Task 12.
 - Pstr - prints the string starting at the top of the stack, followed by a new
 line.
+#### Task 13.
+- Rotl - rotates the stack to the top.
+#### Task 14.
+- Rotr - rotates the stack to the bottom.
+#### Task 15.
+- Stack - stack sets the format of the data to a stack (LIFO). This is the
+default behavior of the program.
