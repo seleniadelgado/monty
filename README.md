@@ -50,3 +50,9 @@ the stack.
 #### Task 9.
 - Mod - computes the rest of the division of the second top element of the stack
 by the top element of the stack.
+#### Task 10.
+- Comments - When the first non-space character of a line is #, treat this line
+as a comment (don’t do anything).
+#### Task 11.
+- Pchar - prints the char at the top of the stack, followed by a new line.
+#### Task 12.
