@@ -80,6 +80,7 @@ void pre_rotr(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void stack(stack_t **stack, unsigned int);
 void queue(stack_t **, unsigned int);
+void push_queue(stack_t **, unsigned int, stack_t *);
 void switch_data(stack_t **, unsigned int);
 
 /* Function Definitions */

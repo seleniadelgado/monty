@@ -60,16 +60,19 @@ void switch_data(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	current = *stack;
-	while (current != NULL)
+	if (current != NULL)
 	{
-		temp = current->next;
-		current->next = current->prev;
-		current->prev = temp;
-		current = temp;
+		while (current != NULL)
+		{
+			temp = current->next;
+			current->next = current->prev;
+			current->prev = temp;
+			current = temp;
+		}
+		temp = *stack;
+		*stack = info.tail;
+		info.tail = temp;
 	}
-	temp = *stack;
-	*stack = info.tail;
-	info.tail = temp;
 }
 
 /**
@@ -79,8 +82,10 @@ void switch_data(stack_t **stack, unsigned int line_number)
   */
 void stack(stack_t **stack, unsigned int line_number)
 {
-	if (info.queue_on == 1)
-		switch_data(stack, line_number);
+	(void)stack;
+	(void)line_number;
+	/* if (info.queue_on == 1) */
+	/*	switch_data(stack, line_number); */
 	info.queue_on = 0;
 }
 
@@ -91,7 +96,9 @@ void stack(stack_t **stack, unsigned int line_number)
   */
 void queue(stack_t **stack, unsigned int line_number)
 {
-	if (info.queue_on == 0)
-		switch_data(stack, line_number);
+	(void)stack;
+	(void)line_number;
+	/* if (info.queue_on == 0) */
+	/* switch_data(stack, line_number); */
 	info.queue_on = 1;
 }

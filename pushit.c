@@ -23,18 +23,45 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	info.num_nodes++;
 	new->n = n;
-	new->next = NULL;
-	if (temp == NULL)
+	new->next = new->prev = NULL;
+	if (info.queue_on == 0)
 	{
-		new->prev = NULL;
-		*stack = new;
-		info.tail = new;
+		if (temp == NULL)
+		{
+			new->prev = NULL;
+			*stack = new;
+			info.tail = new;
+		}
+		else
+		{
+			new->prev = temp;
+			temp->next = new;
+			info.tail = new;
+		}
 	}
 	else
+		push_queue(stack, line_number, new);
+}
+
+/**
+  * push_queue - pushes to a queue data struct
+  * @stack: double pointer to stack
+  * @line_number: line number of file
+  * @new: new element
+  */
+void push_queue(stack_t **stack, unsigned int line_number, stack_t *new)
+{
+	stack_t *head;
+	(void)line_number;
+
+	head = *stack;
+	if (head == NULL)
+		*stack = info.tail = new;
+	else
 	{
-		new->prev = temp;
-		temp->next = new;
-		info.tail = new;
+		new->next = head;
+		head->prev = new;
+		*stack = new;
 	}
 }
 
