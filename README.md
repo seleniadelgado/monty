@@ -25,5 +25,8 @@ A global variable is best used when the scope of it is very small.
 This project is used as an interpreter for Monty ByteCodes files.
 These files usually have the .m extension.
 
-## The montyint file is an interpreter.
-To print the values of the stack use pall.
+###Task 0.
+- Push pushes an element to the stack.
+- Pall prints all the values on the stack, starting from the top of the stack.
+### Task 1.
+- prints the value at the top of the stack, followed by a new line.
