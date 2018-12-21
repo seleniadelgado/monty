@@ -50,11 +50,11 @@ void rotr(stack_t **stack, unsigned int line_number)
 }
 
 /**
-  * pre_rotr - changes format of data stack to queue and vice versa
+  * switch_data - changes format of data stack to queue and vice versa
   * @stack: double pointer to stack
   * @line_number: line number of the file
   */
-void pre_rotr(stack_t **stack, unsigned int line_number)
+void switch_data(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current, *temp;
 	(void)line_number;
@@ -70,4 +70,28 @@ void pre_rotr(stack_t **stack, unsigned int line_number)
 	temp = *stack;
 	*stack = info.tail;
 	info.tail = temp;
+}
+
+/**
+  * stack - changes format of data to stack
+  * @stack: double pointer to stack
+  * @line_number: line number of the file
+  */
+void stack(stack_t **stack, unsigned int line_number)
+{
+	if (info.queue_on == 1)
+		switch_data(stack, line_number);
+	info.queue_on = 0;
+}
+
+/**
+  * queue - changes format of data to stack
+  * @stack: double pointer to stack
+  * @line_number: line number of the file
+  */
+void queue(stack_t **stack, unsigned int line_number)
+{
+	if (info.queue_on == 0)
+		switch_data(stack, line_number);
+	info.queue_on = 1;
 }

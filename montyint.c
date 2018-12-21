@@ -1,5 +1,5 @@
 #include "monty.h"
-info_t info  = {NULL, NULL, 0, NULL};
+info_t info  = {NULL, NULL, 0, NULL, 0};
 /**
  * main - entry point for monty interpreter
  * @argc: argument count
@@ -24,6 +24,8 @@ int main(int argc, char *argv[])
 		{"rotl", rotl},
 		{"rotr", rotr},
 		{"pstr", pstr},
+		{"stack", stack},
+		{"queue", queue},
 		{NULL, NULL}
 	};
 	if (argc != 2)

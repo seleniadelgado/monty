@@ -8,23 +8,12 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new, *temp = info.tail;
-	int n, sign = 1;
+	int n;
 	char *arg;
 	(void)stack;
 
 	arg = strtok(NULL, DELIMITERS);
-	if (str_int(arg))
-	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		freeit(stack);
-		exit(EXIT_FAILURE);
-	}
-	while (*arg == '+' || *arg == '-')
-	{
-		if (*arg++ == '-')
-			sign *= -1;
-	}
-	n = atoi(arg) * sign;
+	n = _atoi(stack, line_number, arg);
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
@@ -47,6 +36,33 @@ void push(stack_t **stack, unsigned int line_number)
 		temp->next = new;
 		info.tail = new;
 	}
+}
+
+/**
+  * _atoi - converts a string to an integer
+  * @stack: double pointer to stack
+  * @line_number: line number
+  * @arg: string to convert
+  * Return: integer value of converted string
+  */
+int _atoi(stack_t **stack, unsigned int line_number, char *arg)
+{
+	int n, sign;
+
+	sign = 1;
+	if (str_int(arg))
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		freeit(stack);
+		exit(EXIT_FAILURE);
+	}
+	while (*arg == '+' || *arg == '-')
+	{
+		if (*arg++ == '-')
+			sign *= -1;
+	}
+	n = atoi(arg) * sign;
+	return (n);
 }
 /**
  * pall - function that prints all the values on the stack, starting from the

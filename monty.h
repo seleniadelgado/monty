@@ -46,6 +46,7 @@ typedef struct instruction_s
   * @buf: buffer storing getline string
   * @num_nodes: number of nodes
   * @tail: tail of stack
+  * @queue_on: indicates whether queue mode is on (1 is on)
   *
   * Description: structure that holds important elements of the Monty program
   */
@@ -55,6 +56,7 @@ typedef struct info_s
 	char *buf;
 	size_t num_nodes;
 	stack_t *tail;
+	char queue_on;
 } info_t;
 
 extern info_t info;
@@ -76,9 +78,14 @@ void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
 void pre_rotr(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack, unsigned int);
+void queue(stack_t **, unsigned int);
+void switch_data(stack_t **, unsigned int);
+
 /* Function Definitions */
 int str_int(char *str);
 int checkfortwo(stack_t **stack);
 int perform_file(instruction_t *, char *);
 void freeit(stack_t **stack);
+int _atoi(stack_t **, unsigned int, char *);
 #endif
